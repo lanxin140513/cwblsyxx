@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件下载 - 阳光中学</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .download-section {
+            margin-bottom: 3rem;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .download-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .file-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-right: 1.5rem;
+        }
+        
+        .file-info {
+            flex: 1;
+        }
+        
+        .file-info h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .file-meta {
+            display: flex;
+            gap: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .download-btn {
+            background-color: #2ecc71;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .category-title i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+        
+        .search-box {
+            margin: 2rem 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-school"></i>
+                <span>阳光中学</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> 学校介绍</a></li>
+                <li><a href="media.html"><i class="fas fa-play-circle"></i> 多媒体</a></li>
+                <li><a href="download.html" class="active"><i class="fas fa-download"></i> 文件下载</a></li>
+                <li><a href="contact.html"><i class="fas fa-comments"></i> 留言板</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="hero" style="height: 30vh; background: linear-gradient(rgba(46, 204, 113, 0.8), rgba(52, 152, 219, 0.8));">
+        <div class="hero-content">
+            <h1>教学资源下载</h1>
+            <p>课件、试卷、学习资料免费下载</p>
+        </div>
+    </section>
+
+    <!-- 搜索框 -->
+    <section class="container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="搜索文件名称、学科或类型...">
+            <button class="search-btn" onclick="searchFiles()"><i class="fas fa-search"></i> 搜索</button>
+        </div>
+    </section>
+
+    <!-- 按学科分类 -->
+    <section class="download-section">
+        <div class="container">
+            <div class="category-title">
+                <i class="fas fa-book"></i>
+                <h2>学科资料</h2>
+            </div>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="file-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="file-info">
+                        <h3>八年级数学课件：一次函数</h3>
+                        <div class="file-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span><i class="far fa-file"></i> 2.4 MB</span>
+                            <span><i class="far fa-calendar"></i> 2024-03-12</span>
+                        </div>
+                        <p>包含一次函数的概念、图像、性质及应用例题。</p>
+                        <a href="assets/downloads/math_function.pdf" class="download-btn" download><i class="fas fa-download"></i> 下载</a>
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="file-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="file-info">
+                        <h3>七年级英语语法总结</h3>
+                        <div class="file-meta">
+                            <span><i class="far fa-file-word"></i> DOCX</span>
+                            <span><i class="far fa-file"></i> 1.8 MB</span>
+                            <span><i class="far fa-calendar"></i> 2024-03-10</span>
+                        </div>
+                        <p>七年级英语重点语法知识总结，含练习题。</p>
+                        <a href="assets/downloads/english_grammar.docx" class="download-btn" download><i class="fas fa-download"></i> 下载</a>
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="file-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="file-info">
+                        <h3>九年级化学实验指导</h3>
+                        <div class="file-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span><i class="far fa-file"></i> 3.2 MB</span>
+                            <span><i class="far fa-calendar"></i> 2024-03-08</span>
+                        </div>
+                        <p>常见化学实验操作步骤及安全注意事项。</p>
+                        <a href="assets/downloads/W.P.S.8775.30.12012(校园版).exe" class="download-btn" download><i class="fas fa-download"></i> 下载</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 按类型分类 -->
+    <section class="download-section" style="background-color: #f8f9fa; padding: 3rem 0;">
+        <div class="container">
+            <div class="category-title">
+                <i class="fas fa-folder"></i>
+                <h2>试卷资料</h2>
+            </div>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="file-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="file-info">
+                        <h3>八年级数学月考试卷</h3>
+                        <div class="file-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span><i class="far fa-file"></i> 1.5 MB</span>
+                            <span><i class="far fa-calendar"></i> 2024-03-05</span>
+                        </div>
+                        <p>2023-2024学年第二学期第一次月考试卷（含答案）。</p>
+                        <a href="assets/downloads/math_exam.pdf" class="download-btn" download><i class="fas fa-download"></i> 下载</a>
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="file-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="file-info">
+                        <h3>七年级英语期中试卷</h3>
+                        <div class="file-meta">
+                            <span><i class="far fa-file-word"></i> DOCX</span>
+                            <span><i class="far fa-file"></i> 2.1 MB</span>
+                            <span><i class="far fa-calendar"></i> 2024-03-01</span>
+                        </div>
+                        <p>2023-2024学年第一学期期中考试试卷。</p>
+                        <a href="assets/downloads/english_midterm.docx" class="download-btn" download><i class="fas fa-download"></i> 下载</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 其他资料 -->
+    <section class="download-section">
+        <div class="container">
+            <div class="category-title">
+                <i class="fas fa-download"></i>
+                <h2>其他学习资料</h2>
+            </div>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="file-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="file-info">
+                        <h3>Python编程入门教程</h3>
+                        <div class="file-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span><i class="far fa-file"></i> 5.3 MB</span>
+                            <span><i class="far fa-calendar"></i> 2024-02-28</span>
+                        </div>
+                        <p>适合初中生的Python编程基础教程，图文并茂。</p>
+                        <a href="assets/downloads/python_tutorial.pdf" class="download-btn" download><i class="fas fa-download"></i> 下载</a>
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="file-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="file-info">
+                        <h3>校园手抄报模板合集</h3>
+                        <div class="file-meta">
+                            <span><i class="far fa-file-archive"></i> ZIP</span>
+                            <span><i class="far fa-file"></i> 8.7 MB</span>
+                            <span><i class="far fa-calendar"></i> 2024-02-25</span>
+                        </div>
+                        <p>包含节日、环保、读书等主题的手抄报设计模板。</p>
+                        <a href="assets/downloads/post_templates.zip" class="download-btn" download><i class="fas fa-download"></i> 下载</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用说明 -->
+    <section class="container" style="margin-bottom: 4rem;">
+        <div style="background: #e8f4fc; padding: 2rem; border-radius: 10px; border-left: 4px solid #2ecc71;">
+            <h3><i class="fas fa-info-circle"></i> 下载说明</h3>
+            <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                <li>点击"下载"按钮可直接下载文件到本地</li>
+                <li>支持的文件格式：PDF、Word、Excel、PowerPoint、ZIP等</li>
+                <li>下载前请确保有相应的软件打开文件（如PDF阅读器、Office软件）</li>
+                <li>文件仅供本校师生教学使用，请勿用于商业用途</li>
+                <li>如有无法下载的文件，请联系信息技术教研室</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-school"></i> 阳光中学</h3>
+                    <p>地址：XX市XX区教育路123号</p>
+                    <p>电话：0510-88888888</p>
+                    <p>邮箱：contact@sunshine-school.edu.cn</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">学校介绍</a></li>
+                        <li><a href="media.html">多媒体资源</a></li>
+                        <li><a href="download.html">文件下载</a></li>
+                        <li><a href="contact.html">留言板</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="copyright">© 2024 阳光中学 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 搜索功能
+        function searchFiles() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.download-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        // 回车键搜索
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchFiles();
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

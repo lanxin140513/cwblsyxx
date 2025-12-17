@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多媒体资源 - 阳光中学</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .media-section {
+            margin-bottom: 4rem;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .video-player, .audio-player {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        video, audio {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .media-info {
+            margin-top: 1rem;
+        }
+        
+        .media-info h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .media-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏（与首页相同） -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-school"></i>
+                <span>阳光中学</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> 学校介绍</a></li>
+                <li><a href="media.html" class="active"><i class="fas fa-play-circle"></i> 多媒体</a></li>
+                <li><a href="download.html"><i class="fas fa-download"></i> 文件下载</a></li>
+                <li><a href="contact.html"><i class="fas fa-comments"></i> 留言板</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="hero" style="height: 30vh; background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(155, 89, 182, 0.8));">
+        <div class="hero-content">
+            <h1>多媒体资源中心</h1>
+            <p>在线观看教学视频，收听音频资料</p>
+        </div>
+    </section>
+
+    <!-- 视频资源部分 -->
+    <section class="media-section" id="videos">
+        <div class="container">
+            <h2 class="section-title">教学视频</h2>
+            <div class="media-grid">
+                <div class="video-player">
+                    <div class="video-wrapper">
+                        <video controls poster="https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80">
+                            <source src="assets/videos/math_lesson.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放，请使用现代浏览器如Chrome、Firefox等。
+                        </video>
+                    </div>
+                    <div class="media-info">
+                        <h3>八年级数学：一次函数讲解</h3>
+                        <p><i class="far fa-clock"></i> 时长：15:30 | <i class="far fa-calendar"></i> 上传日期：2024-03-10</p>
+                        <p>张老师讲解一次函数的基本概念和应用，适合八年级学生预习和复习。</p>
+                    </div>
+                </div>
+                
+                <div class="video-player">
+                    <div class="video-wrapper">
+                        <video controls poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80">
+                            <source src="assets/videos/science_experiment.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放。
+                        </video>
+                    </div>
+                    <div class="media-info">
+                        <h3>物理实验：光的折射现象</h3>
+                        <p><i class="far fa-clock"></i> 时长：8:45 | <i class="far fa-calendar"></i> 上传日期：2024-03-05</p>
+                        <p>实验室演示光的折射原理，直观展示物理现象。</p>
+                    </div>
+                </div>
+                
+                <div class="video-player">
+                    <div class="video-wrapper">
+                        <video controls poster="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80">
+                            <source src="assets/videos/school_activity.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放。
+                        </video>
+                    </div>
+                    <div class="media-info">
+                        <h3>校园艺术节精彩回顾</h3>
+                        <p><i class="far fa-clock"></i> 时长：12:20 | <i class="far fa-calendar"></i> 上传日期：2024-02-28</p>
+                        <p>2024年校园艺术节精彩节目集锦，展现学生才艺。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 音频资源部分 -->
+    <section class="media-section" id="audio" style="background-color: #f8f9fa; padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title">音频资料</h2>
+            <div class="media-grid">
+                <div class="audio-player">
+                    <audio controls>
+                        <source src="assets/audio/school_song.mp3" type="audio/mpeg">
+                        您的浏览器不支持音频播放。
+                    </audio>
+                    <div class="media-info">
+                        <h3>阳光中学校歌</h3>
+                        <p><i class="far fa-clock"></i> 时长：3:45 | <i class="fas fa-music"></i> MP3格式</p>
+                        <p>我校校歌，由音乐老师作曲，全体师生合唱录制。</p>
+                    </div>
+                </div>
+                
+                <div class="audio-player">
+                    <audio controls>
+                        <source src="assets/audio/school_song.mp3" type="audio/mpeg">
+                        您的浏览器不支持音频播放。
+                    </audio>
+                    <div class="media-info">
+                        <h3>七年级英语听力练习</h3>
+                        <p><i class="far fa-clock"></i> 时长：10:20 | <i class="fas fa-music"></i> MP3格式</p>
+                        <p>Unit 3听力材料，适合七年级学生练习使用。</p>
+                    </div>
+                </div>
+                
+                <div class="audio-player">
+                    <audio controls>
+                        <source src="assets/audio/science_lecture.mp3" type="audio/mpeg">
+                        您的浏览器不支持音频播放。
+                    </audio>
+                    <div class="media-info">
+                        <h3>科普讲座：人工智能简介</h3>
+                        <p><i class="far fa-clock"></i> 时长：25:15 | <i class="fas fa-music"></i> MP3格式</p>
+                        <p>校外专家讲座录音，介绍人工智能基础知识。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用说明 -->
+    <section class="container" style="margin-bottom: 4rem;">
+        <div style="background: #e8f4fc; padding: 2rem; border-radius: 10px; border-left: 4px solid #3498db;">
+            <h3><i class="fas fa-info-circle"></i> 使用说明</h3>
+            <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                <li>视频和音频支持在线播放，无需下载即可观看/收听</li>
+                <li>支持MP4（视频）和MP3（音频）格式</li>
+                <li>点击播放按钮开始播放，拖动进度条可跳转到指定位置</li>
+                <li>音量可调节，视频可切换全屏模式</li>
+                <li>如果无法播放，请检查浏览器是否支持HTML5媒体播放</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 页脚（与首页相同） -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-school"></i> 阳光中学</h3>
+                    <p>地址：XX市XX区教育路123号</p>
+                    <p>电话：0510-88888888</p>
+                    <p>邮箱：contact@sunshine-school.edu.cn</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">学校介绍</a></li>
+                        <li><a href="media.html">多媒体资源</a></li>
+                        <li><a href="download.html">文件下载</a></li>
+                        <li><a href="contact.html">留言板</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="copyright">© 2024 阳光中学 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

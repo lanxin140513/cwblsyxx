@@ -1,0 +1,569 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学校介绍 - 成武县伯乐实验学校</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-hero {
+            height: 40vh;
+            background: linear-gradient(rgba(231, 76, 60, 0.8), rgba(155, 89, 182, 0.8)),
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #3498db;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin: 1rem 0;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            border: 4px solid #3498db;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background-color: white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            border: 4px solid #3498db;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .teacher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 4rem;
+        }
+        
+        .teacher-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .teacher-img {
+            height: 200px;
+            background-color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #3498db;
+        }
+        
+        .teacher-info {
+            padding: 1.5rem;
+        }
+        
+        .teacher-name {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .teacher-subject {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .campus-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 4rem;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 2rem 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .honor-list {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0 4rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .honor-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .honor-item:last-child {
+            border-bottom: none;
+        }
+        
+        .honor-icon {
+            font-size: 2rem;
+            color: #f1c40f;
+            margin-right: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-school"></i>
+                <span>成武县伯乐实验学校</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> 学校介绍</a></li>
+                <li><a href="media.html"><i class="fas fa-play-circle"></i> 多媒体</a></li>
+                <li><a href="download.html"><i class="fas fa-download"></i> 文件下载</a></li>
+                <li><a href="contact.html"><i class="fas fa-comments"></i> 留言板</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>成武县伯乐实验学校简介</h1>
+            <p>忠诚奉献 · 立志成才</p>
+        </div>
+    </section>
+
+    <!-- 学校概况 -->
+    <section class="container" style="margin: 4rem auto;">
+        <h2 class="section-title">学校概况</h2>
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; text-align: justify;">
+                成武县伯乐实验学校创办于1985年，是一所集初中教育为一体的公办学校。学校占地面积约80亩，建筑面积3.2万平方米。
+                校园环境优美，教学设施先进，师资力量雄厚。学校始终坚持"以学生发展为本"的办学理念，
+                致力于培养德智体美劳全面发展的社会主义建设者和接班人。
+            </p>
+            
+            <div style="background: #e8f4fc; padding: 2rem; border-radius: 10px; margin-bottom: 3rem;">
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;"><i class="fas fa-bullseye"></i> 办学目标</h3>
+                <p style="margin-bottom: 1rem;">建设一所"学生喜欢、家长满意、教师幸福、社会认可"的现代化优质初中。</p>
+                
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;"><i class="fas fa-hand-peace"></i> 办学理念</h3>
+                <p>为每个学生提供适合的教育，让每个学生都有人生出彩的机会。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史沿革 -->
+    <section style="background-color: #f8f9fa; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">历史沿革</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1985年</div>
+                        <h3>学校创办</h3>
+                        <p>经市教育局批准，成武县伯乐实验学校正式成立，首届招收初一年级6个班，学生300人。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1995年</div>
+                        <h3>首批示范校</h3>
+                        <p>被评为市级首批"示范性初级中学"，教育教学质量得到社会广泛认可。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2005年</div>
+                        <h3>新校区启用</h3>
+                        <p>投资5000万元建设的新校区正式投入使用，教学设施全面升级。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015年</div>
+                        <h3>三十年校庆</h3>
+                        <p>举办建校30周年庆典，成立校友会，制定新一轮发展规划。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020年</div>
+                        <h3>智慧校园</h3>
+                        <p>全面启动智慧校园建设，信息化教学水平达到全市领先。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024年</div>
+                        <h3>新发展阶段</h3>
+                        <p>启动新一轮课程改革，全面推进素质教育，办学特色更加鲜明。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校园数据 -->
+    <section class="container">
+        <h2 class="section-title">校园数据</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">39</div>
+                <div class="stat-label">建校年份</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">48</div>
+                <div class="stat-label">教学班级</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">126</div>
+                <div class="stat-label">在职教师</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2400</div>
+                <div class="stat-label">在校学生</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">80</div>
+                <div class="stat-label">校园面积(亩)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">32</div>
+                <div class="stat-label">特级教师</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 师资力量 -->
+    <section style="background-color: #f8f9fa; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">师资力量</h2>
+            <div class="teacher-grid">
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">张明华</h3>
+                        <p class="teacher-subject">数学特级教师</p>
+                        <p>省级骨干教师，从教25年，所带班级数学成绩常年位居全市前列。</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">李静</h3>
+                        <p class="teacher-subject">英语高级教师</p>
+                        <p>市级学科带头人，主编多部英语教材，教学风格生动有趣。</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">王建国</h3>
+                        <p class="teacher-subject">物理高级教师</p>
+                        <p>省优秀科技辅导员，指导学生获国家级科技创新大赛一等奖。</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">陈晓雨</h3>
+                        <p class="teacher-subject">信息技术教师</p>
+                        <p>年轻骨干教师，精通编程与多媒体教学，深受学生喜爱。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校园风光 -->
+    <section class="container">
+        <h2 class="section-title">校园风光</h2>
+        <div class="campus-gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="校园大门">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="教学楼">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="图书馆">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="实验室">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="运动场">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="校园花园">
+            </div>
+        </div>
+    </section>
+
+    <!-- 学校荣誉 -->
+    <section style="background-color: #f8f9fa; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">学校荣誉</h2>
+            <div class="honor-list">
+                <div class="honor-item">
+                    <div class="honor-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h3>省级文明校园</h3>
+                        <p>连续五年获评"省级文明校园"称号</p>
+                    </div>
+                </div>
+                <div class="honor-item">
+                    <div class="honor-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h3>教育质量先进单位</h3>
+                        <p>2020-2023年度市级教育质量先进单位</p>
+                    </div>
+                </div>
+                <div class="honor-item">
+                    <div class="honor-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h3>信息技术示范校</h3>
+                        <p>国家级信息技术与教育教学融合示范校</p>
+                    </div>
+                </div>
+                <div class="honor-item">
+                    <div class="honor-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h3>素质教育先进校</h3>
+                        <p>省级素质教育先进学校（2022年）</p>
+                    </div>
+                </div>
+                <div class="honor-item">
+                    <div class="honor-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h3>绿色学校</h3>
+                        <p>市级"绿色学校"称号，环境教育示范校</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 办学特色 -->
+    <section class="container" style="margin-bottom: 4rem;">
+        <h2 class="section-title">办学特色</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>信息技术教育</h3>
+                <p>开设编程、机器人等信息技术课程，培养学生创新思维和实践能力。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>艺术教育</h3>
+                <p>建立合唱团、美术社、舞蹈队等艺术社团，提升学生审美素养。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-running"></i>
+                </div>
+                <h3>体育特色</h3>
+                <p>篮球、足球、田径传统项目学校，学生体质健康水平全市领先。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>环境教育</h3>
+                <p>开展垃圾分类、节能减排等环保活动，创建绿色校园。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-school"></i> 成武县伯乐实验学校</h3>
+                    <p>地址：XX市XX区教育路123号</p>
+                    <p>电话：0510-88888888</p>
+                    <p>邮箱：contact@sunshine-school.edu.cn</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">学校介绍</a></li>
+                        <li><a href="media.html">多媒体资源</a></li>
+                        <li><a href="download.html">文件下载</a></li>
+                        <li><a href="contact.html">留言板</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="copyright">© 2024 成武县伯乐实验学校 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
